@@ -1,0 +1,57 @@
+@{
+    ViewData["Title"] = "Event Order Ticket";
+}
+
+<!-- Page Title -->
+<section class="page-title page-title-bottom bg-holder bg-overlay-black-50">
+    <div class="container">
+        <div class="row position-relative">
+            <div class="col-lg-6" id="event">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Event Order Ticket -->
+<section class="space-ptb bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-4">
+                <div class="sidebar">
+                    <partial name="~/Views/Shared/_Partials/_SidebarEvent.cshtml" />
+                </div>
+            </div>
+            <div class="col-lg-9 col-md-8">
+                <div class="sidebar mb-0">
+                    <div class="widget mb-0">
+                        <div class="widget-title">
+                            <h6>Event Order Tickets: </h6>
+                        </div>
+                        <div class="widget-content">
+                            <div class="table-responsive">
+                                <table class="table mb-0">
+                                    <thead class="table-dark">
+                                        <tr>
+                                            <th> Order ID</th>
+                                            <th> Ticket Code</th>
+                                            <th> Ticket Title</th>
+                                            <th> Username</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="order_ticket">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+	<script src="~/js/events/orderTicket.js"></script>
+	<script src="~/js/sidebar.js"></script>
+}

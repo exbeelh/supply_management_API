@@ -1,0 +1,41 @@
+@{
+    ViewData["Title"] = "User List";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<!-- Breadcrumbs -->
+<div class="breadcrumb-wrapper d-flex align-items-start align-items-sm-center justify-content-between flex-column flex-sm-row">
+    <div class="breadcrumb-wrapper--inner d-flex flex-column-reverse">
+        <h1>User List</h1>
+        <ol class="breadcrumb style-1">
+            <li class="breadcrumb-item"><a class="" asp-area="" asp-controller="Admin" asp-action="Index">Dashboard</a></li>
+            <li class="breadcrumb-item" aria-current="page">User List</li>
+        </ol>
+    </div>
+</div>
+
+<!-- User List -->
+<div class="card">
+    <div class="card-body">
+        <table id="user_list_datatable" class="table">
+            <thead>
+                <tr>
+                    <th class="dsh-tooltip text-center" title="Thumbnail" data-bs-placement="top"><i class="bi bi-images"></i></th>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>City</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="user-list">
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+	<script src="~/admin/vendor/js/datatables.min.js"></script>
+	<script src="~/js/users/list.js"></script>
+}

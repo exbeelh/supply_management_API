@@ -41,16 +41,12 @@ namespace SuplyManagement.Controllers
                 {
                     new Claim(ClaimTypes.Email, userData.Email),
                     new Claim(ClaimTypes.Name, userData.Email),
-                    new Claim(ClaimTypes.NameIdentifier, userData.FullName),
-                    new Claim("ID", userData.Id.ToString()),
-                    new Claim("Picture", userData.Picture)
+                    new Claim(ClaimTypes.NameIdentifier, userData.FirstName),
+                    new Claim("UserId", userData.UserId.ToString())
                 };
 
-                var getRoles = _userService.GetRoleByEmai(loginUserDto.Email);
-                foreach (var item in getRoles)
-                {
-                    claims.Add(new Claim(ClaimTypes.Role, item));
-                }
+                var getRoles = _userService.GetRoleByEmail(loginUserDto.Email);
+                claims.Add(new Claim(ClaimTypes.Role, getRoles.ToString()!));
 
                 var accessToken = _tokenService.GenerateAccessToken(claims);
                 var refreshToken = _tokenService.GenerateRefreshToken();
@@ -79,6 +75,41 @@ namespace SuplyManagement.Controllers
                     Code = StatusCodes.Status400BadRequest,
                     Status = HttpStatusCode.BadRequest.ToString(),
                     Message = "Something Wrong!"
+                });
+            }
+        }
+
+        [HttpPost("register")]
+        public IActionResult Register(RegisterUserDto registerUserDto)
+        {
+            try
+            {
+                var result = _userService.RegisterUser(registerUserDto);
+
+                if (result == 0)
+                {
+                    return Conflict(new ResponseHandler<RegisterUserDto>
+                    {
+                        Code = StatusCodes.Status409Conflict,
+                        Status = HttpStatusCode.Conflict.ToString(),
+                        Message = "Data fail to Insert!"
+                    });
+                }
+
+                return Ok(new ResponseHandler<RegisterUserDto>
+                {
+                    Code = StatusCodes.Status200OK,
+                    Status = HttpStatusCode.OK.ToString(),
+                    Message = "Register Successfully"
+                });
+            }
+            catch
+            {
+                return BadRequest(new
+                {
+                    code = StatusCodes.Status400BadRequest,
+                    status = HttpStatusCode.BadRequest.ToString(),
+                    message = "Something Wrong!"
                 });
             }
         }

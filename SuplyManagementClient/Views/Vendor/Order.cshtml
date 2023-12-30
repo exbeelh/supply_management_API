@@ -1,0 +1,100 @@
+@{
+    ViewData["Title"] = "Event Order";
+}
+
+<!-- Page Title -->
+<section class="page-title page-title-bottom bg-holder bg-overlay-black-50">
+    <div class="container">
+        <div class="row position-relative">
+            <div class="col-lg-6" id="event">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Event Order -->
+<section class="space-ptb bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-4">
+                <div class="sidebar">
+                    <partial name="~/Views/Shared/_Partials/_SidebarEvent.cshtml" />
+                </div>
+            </div>
+            <div class="col-lg-9 col-md-8">
+                <div class="sidebar mb-0">
+                    <div class="widget mb-0">
+                        <div class="widget-title">
+                            <h6>List Of Ticket Sales: </h6>
+                        </div>
+                        <div class="widget-content">
+                            <div class="table-responsive">
+                                <table class="table mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th> Order ID</th>
+                                            <th> Ticket Buyer</th>
+                                            <th> Quantity</th>
+                                            <th> Payment</th>
+                                            <th> Date</th>
+                                            <th> Action</th>
+                                            <th> Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="ticket_sales_list">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Modal -->
+<div class="modal login fade" id="detailOrderModal" tabindex="-1" role="dialog" aria-labelledby="detailOrderModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header border-0">
+                <h5 class="modal-title" id="detailOrderModalLabel"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p id="order_detail"></p>
+                <span class="badge bg-success p-2">Completed</span>
+                <hr>
+                <table class="table">
+                    <thead class="table-secondary">
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="text-center">Quantity</th>
+                            <th class="text-right">Ticket Price</th>
+                            <th class="text-right">Total Paid</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ticket_list">
+                    </tbody>
+                    <tfoot class="table-dark">
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td class="text-center" id="sum_quantity"></td>
+                            <td></td>
+                            <td class="text-right" id="sum_total"></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+	<script src="~/js/events/order.js"></script>
+	<script src="~/js/sidebar.js"></script>
+}

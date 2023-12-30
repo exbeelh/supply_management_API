@@ -1,0 +1,37 @@
+@{
+    ViewData["Title"] = "Manage Event";
+}
+
+<!-- Page Title -->
+<partial name="~/Views/Shared/_Partials/_HeroUser.cshtml" />
+
+<!-- My Profile -->
+<section class="space-ptb bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-4">
+                <div class="sidebar">
+                    <partial name="~/Views/Shared/_Partials/_Sidebar.cshtml" />
+                </div>
+            </div>
+            <div class="col-lg-9 col-md-8">
+                <h4 class="mb-4">Event List</h4>
+                <div class="sidebar mb-0">
+                    <div class="widget mb-0">
+                        <div class="widget-title">
+                            <h6> <i class="fas fa-list"></i> Manage Events: </h6>
+                        </div>
+                        <div class="widget-content" id="event_list">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="~/js/events/manage.js"></script>
+}

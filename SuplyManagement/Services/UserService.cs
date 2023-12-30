@@ -68,5 +68,14 @@ namespace SuplyManagement.Services
 
             return getUserData!;
         }
+
+        public GetUserRoleDto GetRoleByEmail(string email)
+        {
+            return _userRepository.GetAll()
+                .Where(user => user.Email == email)
+                .Select(user => new GetUserRoleDto { Role = user.Role })
+                .FirstOrDefault()!;
+
+        }
     }
 }

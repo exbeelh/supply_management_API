@@ -1,0 +1,97 @@
+@{
+    ViewData["Title"] = "Manage Organizer";
+}
+
+<!-- Page Title -->
+<partial name="~/Views/Shared/_Partials/_HeroUser.cshtml" />
+
+<!-- My Profile -->
+<section class="space-ptb bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-4">
+                <div class="sidebar">
+                    <partial name="~/Views/Shared/_Partials/_Sidebar.cshtml" />
+                </div>
+            </div>
+            <div class="col-lg-9 col-md-8">
+                <h4 class="mb-4">Organizer Profile</h4>
+                <div class="sidebar mb-0">
+                    <form class="needs-validation row" novalidate enctype="multipart/form-data" id="form">
+                        <div class="widget">
+                            <div class="widget-title">
+                                <h6> <i class="fas fa-id-card"></i> Organizer: </h6>
+                            </div>
+                            <div class="widget-content">
+                                <div class="form-group mb-3 col-md-12">
+                                    <label class="form-label">Name</label>
+                                    <input type="text" class="form-control" id="name" value="">
+                                </div>
+                                <div class="form-group mb-3 col-md-12">
+                                    <label class="form-label">Description </label>
+                                    <textarea class="form-control" rows="4" id="description"></textarea>
+                                </div>
+                                <div class="form-group mb-3 col-md-12">
+                                    <label class="form-label">Organizer Picture</label>
+                                    <div class="input-group file-upload">
+                                        <input type="file" class="form-control" id="image">
+                                        <label class="input-group-text" for="image">Upload Image </label>
+                                    </div>
+                                </div>
+                                <div class="form-group mb-3 col-md-12">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="descriptionStatus">
+                                        <label class="custom-control-label" for="descriptionStatus">Use this description on my event pages</label>
+                                    </div>
+                                </div>
+                                <div class="form-group mb-3 col-md-12">
+                                    <div class="mb-3 col-lg-12">
+                                        <label class="form-label">Organizer Status </label>
+                                        <div class="toggle-button-cover">
+                                            <div class="button b2" id="button-status">
+                                                <input type="checkbox" class="checkbox" />
+                                                <div class="knobs">
+                                                    <span></span>
+                                                </div>
+                                                <div class="layer"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group mb-3 col-md-12">
+                                    <label class="form-label">Website <small>(eg : "http://www.event.com")</small></label>
+                                    <input type="text" class="form-control" id="website" value="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="widget mb-0">
+                            <div class="widget-title">
+                                <h6> <i class="fas fa-id-card"></i> Social Network: </h6>
+                            </div>
+                            <div class="widget-content">
+                                <div class="form-group mb-3 col-md-12">
+                                    <label class="form-label">Facebook</label>
+                                    <input type="text" class="form-control" id="facebook-url" value="">
+                                </div>
+                                <div class="form-group mb-3 col-md-12">
+                                    <label class="form-label">Twitter</label>
+                                    <input type="text" class="form-control" id="twitter-url" value="">
+                                </div>
+                                <div class="mb-3 col-12 form-group">
+                                    <button type="submit" class="btn btn-secondary" id="submit-btn">Update Organizer</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="~/dist/js/select2/select2.full.js"></script>
+    <script src="~/dist/js/dropzone/dropzone.js"></script>
+    <script src="~/js/organizers/manage.js"></script>
+}

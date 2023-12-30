@@ -1,0 +1,60 @@
+@{
+    ViewData["Title"] = "Event Dashboard";
+}
+
+<!-- Page Title -->
+<section class="page-title page-title-bottom bg-holder bg-overlay-black-50">
+    <div class="container">
+        <div class="row position-relative">
+            <div class="col-lg-6" id="event">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Event Dashboard -->
+<section class="space-ptb bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-4">
+                <div class="sidebar">
+                    <partial name="~/Views/Shared/_Partials/_SidebarEvent.cshtml" />
+                </div>
+            </div>
+            <div class="col-lg-9 col-md-8">
+                <div class="sidebar mb-0">
+                    <div class="widget mb-4" id="ticket_total"></div>
+                    <div id="ticket_list"></div>
+                </div>
+                <div class="sidebar mb-0">
+                    <div class="widget mb-0">
+                        <div class="widget-title">
+                            <h6>Sales by Ticket Type: </h6>
+                        </div>
+                        <div class="widget-content">
+                            <div class="table-responsive">
+                                <table class="table mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th> Ticket Type</th>
+                                            <th> Price</th>
+                                            <th> Sold</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="ticket_sales">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+	<script src="~/js/events/dashboard.js"></script>
+	<script src="~/js/sidebar.js"></script>
+}

@@ -1,8 +1,70 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+@{
+    ViewData["Title"] = "Dashboard";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<!-- Breadcrumbs -->
+<div class="breadcrumb-wrapper d-flex align-items-start align-items-sm-center justify-content-between flex-column flex-sm-row">
+    <div class="breadcrumb-wrapper--inner d-flex flex-column-reverse">
+        <ol class="breadcrumb style-1">
+            <li class="breadcrumb-item"><a href="#">Admin</a></li>
+            <li class="breadcrumb-item" aria-current="page">Dashboard</li>
+        </ol>
+    </div>
 </div>
+<div class="row">
+    <div class="col-xl-6">
+        <div class="card">
+            <div class="card-body">
+                <div class="dsh-section-title">
+                    <h5 class="card-title">Company</h5>
+                </div>
+                <table class="table table-hover dsh-responsive-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Company Type</th>
+                            <th>Business Field</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="aproved-event">
+
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-6">
+
+        <!-- Country Overview -->
+        <div class="card card-fh">
+            <div class="card-body">
+                <div class="dsh-section-title">
+                    <h5 class="card-title">Project</h5>
+                </div>
+                <table class="table table-hover dsh-responsive-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody id="list-organizer">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script src="~/dist/js/select2/select2.full.js"></script>
+    <script src="~/dist/js/dropzone/dropzone.js"></script>
+    <script src="~/js/admin/index.js"></script>
+}

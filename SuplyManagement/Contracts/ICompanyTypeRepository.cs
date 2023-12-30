@@ -1,6 +1,8 @@
-﻿namespace SuplyManagement.Contracts
+﻿using SuplyManagement.Models;
+
+namespace SuplyManagement.Contracts
 {
-    public interface ICompanyTypeRepository
+    public interface ICompanyTypeRepository : IGeneralRepository<TbCompaniesType>
     {
     }
 }

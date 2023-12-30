@@ -9,5 +9,5 @@ namespace SuplyManagement.DTOs.UserDto
         public String FirstName { get; set; } = null!;
         public String? LastName { get; set; }
         public String Email { get; set; } = null!;
-
+    }
 }

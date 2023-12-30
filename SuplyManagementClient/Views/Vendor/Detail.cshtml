@@ -1,0 +1,144 @@
+@{
+    ViewData["Title"] = "Detail Event";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<!-- Breadcrumbs -->
+<div class="breadcrumb-wrapper d-flex align-items-start align-items-sm-center justify-content-between flex-column flex-sm-row">
+    <div class="breadcrumb-wrapper--inner d-flex flex-column-reverse">
+        <h1>Detail Event</h1>
+        <ol class="breadcrumb style-1">
+            <li class="breadcrumb-item"><a class="" asp-area="" asp-controller="Admin" asp-action="Index">Dashboard</a></li>
+            <li class="breadcrumb-item" aria-current="page">Detail Event</li>
+        </ol>
+    </div>
+    <div class="breadcrumb-controls mt-sm-0 mt-3">
+        <a asp-area="" asp-controller="Event" asp-action="List" class="btn btn-secondary">Kembali</a>
+    </div>
+</div>
+
+<div class="dsh-product-details">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="dsh-product-thumb">
+                        <!-- Main Thumb -->
+                        <div class="dsh-product-primary-thumb">
+                            <div class="thumb dsh-slider-item">
+                                <img src="" alt="detail" id="event_image">
+                            </div>
+                        </div>
+                        <!-- /Main Thumb -->
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="dsh-product-content">
+                        <h2 id="event_title"></h2>
+
+                        <!-- Price -->
+                        <div class="dsh-price-wrapper">
+                            <p class="dsh-price">$8.99</p>
+                        </div>
+                        <!-- /Price -->
+
+                        <hr class="dsh-seperator">
+
+                        <!-- Product Meta -->
+                        <ul class="product-meta">
+                            <li>
+                                <span>Event Type: </span>
+                                <div class="text-muted dsh-product-meta-item">
+                                    <span id="event_type"></span>
+                                </div>
+                            </li>
+                            <li>
+                                <span>Date: </span>
+                                <div class="text-muted dsh-product-meta-item">
+                                    <span id="event_datetime"></span>
+                                </div>
+                            </li>
+                        </ul>
+                        <!-- /Product Meta -->
+
+                        <hr class="dsh-seperator">
+
+                        <ul class="product-meta">
+                            <li class="offline d-none">
+                                <span>Address: </span>
+                                <div class="text-muted dsh-product-meta-item">
+                                    <span id="event_address"></span>
+                                </div>
+                            </li>
+                            <li class="online d-none">
+                                <span>Online Event Link: </span>
+                                <div class="text-muted dsh-product-meta-item">
+                                    <span id="event_link"></span>
+                                </div>
+                            </li>
+                            <li class="online d-none">
+                                <span>Note: </span>
+                                <div class="text-muted dsh-product-meta-item">
+                                    <span id="event_note"></span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Additional Information -->
+    <div class="card dsh-product-additional-info">
+        <div class="card-header p-0">
+            <ul class="nav nav-bordered mb-0" id="bordered-tab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="tab-event-desc-tab" data-bs-toggle="pill" href="#tab-event-desc" role="tab" aria-controls="tab-event-desc" aria-selected="true">Description</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="tab-event_ticket-tab" data-bs-toggle="pill" href="#tab-event_ticket" role="tab" aria-controls="tab-event_ticket" aria-selected="false">Tickets</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="tab-event-organizer-tab" data-bs-toggle="pill" href="#tab-event-organizer" role="tab" aria-controls="tab-event-organizer" aria-selected="false">Organizer</a>
+                </li>
+            </ul>
+        </div>
+        <div class="card-body">
+            <div class="tab-content" id="bordered-tabContent">
+                <div class="tab-pane fade show active" id="tab-event-desc" role="tabpanel" aria-labelledby="tab-event-desc-tab">
+                    <h5 class="card-title">Description</h5>
+                    <span id="event_description"></span>
+                </div>
+                <div class="tab-pane fade" id="tab-event_ticket" role="tabpanel" aria-labelledby="tab-event_ticket-tab">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">Ticket Name</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Quantity</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ticket_list">
+                        </tbody>
+                    </table>
+                </div>
+                <div class="tab-pane fade" id="tab-event-organizer" role="tabpanel" aria-labelledby="tab-event-organizer-tab">
+                    <div class="media p-0">
+                        <img src="http://via.placeholder.com/30" class="rounded-circle" alt="widget" id="organizer_image">
+                        <div class="media-body">
+                            <h6 class="mb-0" id="organizer_name"></h6>
+                            <span class="text-muted" id="organizer_description"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Additional Information -->
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+	<script src="~/js/events/detail.js"></script>
+}
