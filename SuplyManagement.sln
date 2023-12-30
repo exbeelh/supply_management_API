@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33815.320
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SuplyManagement", "SuplyManagement\SuplyManagement.csproj", "{794EB39C-6640-4B56-9CF0-B3A8DA96091D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuplyManagementClient", "SuplyManagementClient\SuplyManagementClient.csproj", "{2EEC01E2-877D-4329-AA06-C582199ADC0E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{794EB39C-6640-4B56-9CF0-B3A8DA96091D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{794EB39C-6640-4B56-9CF0-B3A8DA96091D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{794EB39C-6640-4B56-9CF0-B3A8DA96091D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{794EB39C-6640-4B56-9CF0-B3A8DA96091D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2EEC01E2-877D-4329-AA06-C582199ADC0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EEC01E2-877D-4329-AA06-C582199ADC0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EEC01E2-877D-4329-AA06-C582199ADC0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EEC01E2-877D-4329-AA06-C582199ADC0E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0AE6C6E8-21CD-4A92-804F-DABECFD08B49}
+	EndGlobalSection
+EndGlobal
