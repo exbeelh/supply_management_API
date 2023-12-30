@@ -7,6 +7,8 @@ using System.Security.Claims;
 
 namespace SuplyManagement.Controllers
 {
+    [Route("users")]
+    [ApiController]
     public class UserController : ControllerBase
     {
         private readonly UserService _userService;
